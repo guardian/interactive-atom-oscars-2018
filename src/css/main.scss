@@ -1,0 +1,395 @@
+@import "mq";
+@import "fonts";
+@import "palette";
+$gs-baseline: 12px;
+$gs-gutter: 10px;
+
+
+.content__main-column--interactive {
+    & > p, & > h2, .element-interactive,.element-atom {
+        max-width: 620px;
+
+        @include mq(leftCol) {
+            margin-left: 160px !important;
+        }
+        @include mq(wide) {
+            margin-left: 240px !important;
+        }
+    }
+
+    & > h2 {
+    	font-family: "Guardian Egyptian Web", Georgia;
+    	font-size: 36px;
+    	line-height: 42px;
+    	font-weight: 200;
+    	color: #333;
+    	margin-top: 36px;
+    	margin-bottom: 6px;
+    }
+
+    .element--immersive {
+    	max-width: initial;
+    	margin-left: 0 !important;
+        margin-bottom: 36px !important;
+    }
+
+    .element--supporting {
+      float: left;
+      max-width: 380px;
+      @include mq(leftCol) {
+          margin-left: -140px !important;
+      }
+      @include mq(wide) {
+          margin-left: -240px !important;
+      }
+    }
+
+    .element--showcase {
+
+    }
+}
+.element-atom {
+  &:before {
+          position: absolute;
+          top: -52px;
+          bottom: -$gs-baseline * 2;
+          left: -$gs-gutter;
+          width: 1px;
+          background-color: $culture-gold;
+          content: '';
+          display: none;
+          @include mq($from: leftCol) {
+              display: block;
+              bottom:0;
+          }
+      }
+}
+.content__meta-container {
+  z-index: 10000;
+  position: absolute !important;
+  top: -72px;
+  @include mq($from: leftCol) {
+    top: -46px;
+    left: -160px;
+  }
+  @include mq($from: wide) {
+      left: -240px;
+      max-width: 220px;
+  }
+  .meta__extras  {
+    display: block;
+    border-bottom: none;
+    border-top: none;
+  }
+  .social--expanded-top {
+    background: none;
+  }
+  .meta__social {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+  .meta__numbers {
+    @include mq($from: leftCol) {
+      display: block;
+      position: relative;
+      width: 100%;
+      // background-image: repeating-linear-gradient(to bottom, #dcdcdc, #dcdcdc 0.0625rem, transparent 0.0625rem, transparent 0.25rem);
+      // background-repeat: repeat-x;
+      // background-position: top;
+      // background-size: 0.0625rem 0.0625rem;
+      border-top: 0;
+      padding-top: $gs-baseline / 2;
+      right: 0;
+      top: 0;
+      margin-right: 0;
+    }
+  }
+  .meta__numbers .sharecount__heading,
+  .meta__numbers .sharecount__value {
+    color: $highlight-yellow;
+      @include mq($from: leftCol) {
+        color: $culture-gold;
+      }
+  }
+  .block-share__item,
+    .inline-close,
+    .social-icon,
+    .social-icon.social-icon--more {
+        background-color: transparent;
+        border: 1px solid $highlight-yellow;
+
+        &:focus,
+        &:hover {
+            svg {
+                fill: $neutral-7;
+            }
+        }
+    }
+
+  .block-share__item .inline-icon,
+      .inline-close svg,
+      .commentcount2__heading span,
+      .old-article-message .old-article-message--clock svg,
+      .social-icon svg,
+      .social-icon__svg {
+          fill: $highlight-yellow;
+      }
+
+      .block-share__item,
+      .meta__twitter a,
+      .social-icon,
+      .social-icon.social-icon--more {
+          &:focus,
+          &:hover {
+              background-color: $highlight-yellow;
+              border: 1px solid $highlight-yellow;
+          }
+      }
+}
+
+.l-side-margins::before,
+.l-side-margins::after {
+  background: white;
+}
+
+.content__main-column {
+
+
+  }
+
+
+
+.content__head {
+  background-color: blue;
+  height: 90vh;
+  margin: 0 auto;
+}
+// Background Image //
+.content__head::before {
+  display: block;
+  background-color: #111111;
+  height: 90vh;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  @include mq($from: tablet) {
+    z-index: 2;
+  }
+}
+.content__head::after {
+  content: "";
+  display: block;
+  background-repeat: no-repeat;
+  background-image: url('<%= path %>/assets/cover-image-desktop.png');
+  background-position: center;
+  background-size:cover;
+  height: 222px;
+  width: 300px;
+  position: absolute;
+  left: 10px;
+  top: 10vh;
+  z-index: 2;
+  @include mq($from: mobileMedium) {
+    left: 20px;
+    width: 340px;
+    height: 251px;
+  }
+  @include mq($from: mobileLandscape) {
+    left: 20px;
+    width: 460px;
+    height: 340px;
+  }
+  @include mq($from: tablet) {
+    background-image: url('<%= path %>/assets/cover-image-desktop.png');
+    background-size: contain;
+    height: 60vh;
+    top: 5vh;
+    width: 100%;
+    left: 0;
+  }
+  @include mq($from: wide) {
+    height: 70vh;
+
+  }
+}
+.content__headline {
+  height: 70vh;
+}
+
+.content__standfirst {
+  z-index: 5;
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  @include fs-headline(3);
+  font-weight: 200;
+}
+
+// Drop cap //
+sup {
+  display: inline-block;
+  position: absolute;
+  z-index: -100;
+  background-image: url('<%= path %>/assets/E.svg') !important;
+  opacity: 0.8;
+  float: left;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 138px;
+  width: 108px;
+  top: -52px;
+  left: -10px;
+  margin-right: 4px;
+}
+
+p:first-of-type {
+  margin-top: 28px;
+}
+
+// Image //
+.element--showcase {
+
+  img {
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    @include mq($from: tablet) {
+    padding-left: 0px;
+    }
+    @include mq($from: leftCol) {
+      margin-left: 130px;
+      width: 652px;
+      height: 100%;
+    }
+    @include mq($from: wide) {
+      margin-left: 210px;
+    }
+  }
+
+  figcaption {
+    position: absolute;
+    display: inline-block;
+    top: 124px !important;
+    right: 0px;
+    width: 180px;
+    @include fs-textSans(3);
+    line-height: 18px;
+    @include mq($from: tablet) {
+      top: 180px !important;
+      right: -60px !important;
+    }
+
+  }
+
+  .element-image__caption {
+
+    background: $highlight-yellow;
+    padding: 2px 4px;
+  	box-decoration-break: clone;
+  	-webkit-box-decoration-break: clone;
+
+    strike {
+      display: inline-block;
+      color: transparent;
+      position: absolute;
+      transform: rotate(40deg) scaleX(-1);
+      background-image: url('<%= path %>/assets/arrow.png') !important;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 75%;
+      height: 75%;
+      top: -70px;
+      right: 20px;
+      @include mq($from: tablet) {
+        width: 120%;
+        height: 120%;
+        right: 140px;
+        top: -120px;
+      }
+    }
+  }
+}
+
+// Quotes //
+blockquote.quoted {
+    p {
+      font-size: 24px;
+      font-family: "Guardian Egyptian Web",Georgia,serif;
+      font-weight: 200;
+      color: #333333;
+      line-height: 27px;
+      margin-bottom: 36px;
+      margin-top: 12px;
+      float: left;
+      height: 100%;
+      padding-left: 20px;
+      padding-top: 6px;
+      padding-right: 20px;
+      padding-bottom: 120px;
+      position: relative;
+      z-index: 2;
+
+      @include mq($from: mobileMedium) {
+        padding-bottom: 220px;
+        padding-top: 12px;
+        padding-right: 40px;
+
+      }
+
+      @include mq($from: mobileLandscape) {
+        width: 232px;
+        padding-left: 0px;
+        padding-top: 6px;
+        padding-right: 40px;
+        padding-bottom: 32px;
+      }
+
+      @include mq($from: leftCol) {
+        font-size: 26px;
+        line-height: 28px;
+        width: 240px;
+        padding-right: 40px;
+        padding-bottom: 32px;
+      }
+
+      @include mq($from: wide) {
+        margin-left: -220px;
+        padding-right: 40px;
+        padding-bottom: 20px;
+      }
+
+      strong {
+        display: block;
+        color: $culture-gold;
+      }
+    }
+}
+
+blockquote.quoted:after {
+    content: '';
+    display: block;
+    background-image: url('<%= path %>/assets/speechbubbleA.png') !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    @include mq($from: mobileLandscape) {
+      width: 290px;
+      left: -20px;
+    }
+    @include mq($from: leftCol) {
+      width: 290px;
+      left: -18px;
+    }
+    @include mq($from: wide) {
+      width: 290px;
+      left: -240px;
+    }
+  }
+// ios & android //
+.prose blockquote.quoted::after {
+  font-size: 0em;
+}
