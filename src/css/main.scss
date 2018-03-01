@@ -224,6 +224,17 @@ $gs-gutter: 10px;
   bottom: 40px;
   @include fs-headline(3);
   font-weight: 200;
+  @include mq($from: tablet) {
+    left: -140px;
+    bottom: -20px;
+  }
+  @include mq($from: desktop) {
+    left: -100px;
+  }
+  @include mq($from: leftCol) {
+    left: 0px;
+    bottom: -80px;
+  }
 }
 
 // Drop cap //
@@ -248,11 +259,45 @@ p:first-of-type {
 }
 
 // Image //
-.element--showcase {
+.element-image__caption {
+  background: $highlight-yellow;
+  padding: 2px 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.element-image__credit {
+  background: $neutral-100;
+  padding: 5px 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: black;
+  font-size: 10px;
+}
 
+.element-image {
   img {
     width: 100%;
     height: 100%;
+  }
+  figcaption {
+    position: absolute;
+    display: inline-block;
+    bottom: -10px !important;
+    width: 300px;
+    @include fs-textSans(3);
+    line-height: 18px;
+    @include mq($from: tablet) {
+      width: 50%;
+      top: 332px !important;
+    }
+
+  }
+
+}
+
+.element--showcase {
+
+  img {
     margin-left: 10px;
     @include mq($from: tablet) {
     padding-left: 0px;
@@ -270,24 +315,19 @@ p:first-of-type {
   figcaption {
     position: absolute;
     display: inline-block;
-    top: 124px !important;
+    top: 140px !important;
     right: 0px;
-    width: 180px;
+    width: 144px;
     @include fs-textSans(3);
     line-height: 18px;
     @include mq($from: tablet) {
       top: 180px !important;
-      right: -60px !important;
+      right: -20px !important;
     }
 
   }
 
   .element-image__caption {
-
-    background: $highlight-yellow;
-    padding: 2px 4px;
-  	box-decoration-break: clone;
-  	-webkit-box-decoration-break: clone;
 
     strike {
       display: inline-block;
@@ -304,8 +344,8 @@ p:first-of-type {
       @include mq($from: tablet) {
         width: 120%;
         height: 120%;
-        right: 140px;
-        top: -120px;
+        right: 120px;
+        top: -100px;
       }
     }
   }
