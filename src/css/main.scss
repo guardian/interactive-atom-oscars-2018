@@ -181,13 +181,13 @@ $gs-gutter: 10px;
 
 
 
-.content__head {
+.content__head, .article__header  {
   background-color: blue;
   height: 90vh;
   margin: 0 auto;
 }
 // Background Image //
-.content__head::before {
+.content__head::before  {
   display: block;
   background-color: #111111;
   height: 90vh;
@@ -459,6 +459,39 @@ blockquote.quoted:after {
   }
 }
 // ios & android //
-.prose blockquote.quoted::after {
+.prose {
+  blockquote.quoted::after {
   font-size: 0em;
+  display: none;
+  }
+
+  figcaption {
+    display: none;
+  }
+  .element-image__caption {
+    display: none;
+  }
+  p:first-of-type {
+    margin-top: 0px;
+  }
+  blockquote.quoted p {
+    padding-bottom: 0px;
+  }
+  blockquote::before {
+    color: $culture-gold;
+  }
+}
+
+  .article__header::before {
+  content: "";
+  display: block;
+  background-color: #111111;
+  background-repeat: no-repeat;
+  background-image: url('<%= path %>/assets/cover-image-desktop.png');
+  background-position: center;
+  background-size: contain;
+  height: 90vh;
+  width: 100%;
+  position: absolute;
+  z-index: 40;
 }
