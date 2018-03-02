@@ -6,7 +6,7 @@ $gs-gutter: 10px;
 
 
 .content__main-column--interactive {
-    & > p, & > h2, .element-interactive,.element-atom {
+    & > p, & > h2, sup, .element-interactive,.element-atom, .element-image {
         max-width: 620px;
 
         @include mq(leftCol) {
@@ -32,15 +32,17 @@ $gs-gutter: 10px;
     	margin-left: 0 !important;
         margin-bottom: 36px !important;
     }
-
     .element--supporting {
+      border-top: none;
+      border-bottom: none;
+    }
+
+    figure.element--supporting {
       float: left;
       max-width: 380px;
+
       @include mq(leftCol) {
-          margin-left: -140px !important;
-      }
-      @include mq(wide) {
-          margin-left: -240px !important;
+          margin-left: 0px !important;
       }
     }
 
@@ -48,21 +50,28 @@ $gs-gutter: 10px;
 
     }
 }
-.element-atom {
+.gs-container {
   &:before {
           position: absolute;
-          top: -52px;
+          top: -28px;
           bottom: -$gs-baseline * 2;
           left: -$gs-gutter;
           width: 1px;
-          background-color: $culture-gold;
+          background-color: $neutral-7;
           content: '';
           display: none;
           @include mq($from: leftCol) {
               display: block;
               bottom:0;
           }
+          @include mq(leftCol) {
+              margin-left: 180px !important;
+          }
+          @include mq(wide) {
+              margin-left: 260px !important;
+          }
       }
+
 }
 .content__meta-container {
   z-index: 10000;
@@ -290,9 +299,7 @@ p:first-of-type {
       width: 50%;
       top: 332px !important;
     }
-
   }
-
 }
 
 .element--showcase {
@@ -303,12 +310,12 @@ p:first-of-type {
     padding-left: 0px;
     }
     @include mq($from: leftCol) {
-      margin-left: 130px;
+      margin-left: -30px;
       width: 652px;
       height: 100%;
     }
     @include mq($from: wide) {
-      margin-left: 210px;
+      margin-left: -30px;
     }
   }
 
@@ -327,6 +334,8 @@ p:first-of-type {
 
   }
 
+  // arrow
+
   .element-image__caption {
 
     strike {
@@ -344,8 +353,8 @@ p:first-of-type {
       @include mq($from: tablet) {
         width: 120%;
         height: 120%;
-        right: 120px;
-        top: -100px;
+        right: 160px;
+        top: -110px;
       }
     }
   }
@@ -391,12 +400,13 @@ blockquote.quoted {
         width: 240px;
         padding-right: 40px;
         padding-bottom: 32px;
+        margin-left: 160px;
       }
 
       @include mq($from: wide) {
-        margin-left: -220px;
         padding-right: 40px;
-        padding-bottom: 20px;
+        padding-bottom: 0px;
+        margin-left: 20px;
       }
 
       strong {
@@ -422,11 +432,11 @@ blockquote.quoted:after {
     }
     @include mq($from: leftCol) {
       width: 290px;
-      left: -18px;
+      left: 140px;
     }
     @include mq($from: wide) {
       width: 290px;
-      left: -240px;
+      left: 0px;
     }
   }
 // ios & android //
