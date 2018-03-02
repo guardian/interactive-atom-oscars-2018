@@ -49,6 +49,9 @@ $gs-gutter: 10px;
     .element--showcase {
 
     }
+    a {
+      color: $feature-gold;
+    }
 }
 .gs-container {
   &:before {
@@ -73,7 +76,7 @@ $gs-gutter: 10px;
       }
 
 }
-.content__meta-container {
+.gs-container:first-of-type .content__meta-container {
   z-index: 10000;
   position: absolute !important;
   top: -72px;
@@ -165,6 +168,15 @@ $gs-gutter: 10px;
 .content__main-column {
 
 
+  }
+
+  .byline-test {
+    display: block;
+    background: green;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
   }
 
 
@@ -322,7 +334,7 @@ p:first-of-type {
   figcaption {
     position: absolute;
     display: inline-block;
-    top: 140px !important;
+    top: 100px !important;
     right: 0px;
     width: 144px;
     @include fs-textSans(3);
@@ -439,6 +451,13 @@ blockquote.quoted:after {
       left: 0px;
     }
   }
+
+  p.byline {
+  font-weight: 200;
+  a {
+    color: $feature-gold;
+  }
+}
 // ios & android //
 .prose blockquote.quoted::after {
   font-size: 0em;
